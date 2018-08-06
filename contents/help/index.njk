@@ -1,0 +1,13 @@
+---
+title: Help and Documentation
+description: page showing lalala
+---
+<p>This is the documentation page</p>
+
+<h2>{{ qss.metadata.name }}</h2>
+
+<ul>
+{% for item in qss %}
+	<li><a href="{{ item.path }}">{{ item.title }}</a></li>
+{% endfor %}
+</ul>

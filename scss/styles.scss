@@ -1,0 +1,107 @@
+body {
+	font-family: Roboto, sans-serif;
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+
+/************************************
+* HEADER
+*************************************/
+
+header {
+	width: 100%;
+	min-height: 40px;
+	padding: 8px 16px;
+	position: fixed;
+	top: 0;
+	background-color: rgba(255, 255, 255, .99);
+	border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+.site-logo {
+	display: inline-block;
+	margin-before: 0;
+	font-weight: normal;
+	font-size: 1.4em;
+}
+
+.menu-toggle {
+	display: block;
+	position: absolute;
+	right: 3em;
+	background-color: #fff;
+	height: 40px;
+	width: 56px;
+	padding: 5px 11px;
+	border: 1px solid rgba(0, 0, 0, .1);
+	border-radius: .25rem;
+	box-sizing: border-box;
+	span {
+		display: block;
+		width: 30px;
+		height: 3px;
+		background-color: rgba(0, 0, 0, .3);
+		margin: 5px 0;
+	}
+
+	&:hover {
+		background-color: rgba(0, 0, 0, .1);
+	}
+}
+
+.navbar {
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style-type: none;
+	}
+
+	ul > li > a {
+		text-decoration: none;
+		color: #777;
+	}
+
+	ul > li > a:hover,
+	ul > li > a:focus {
+		color: #000;
+		background-color: rgba(0, 0, 0, .05);
+	}
+}
+
+.sr-only {
+	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px);
+	padding: 0 !important;
+	border: 0 !important;
+	height: 1px !important;
+	width: 1px !important;
+	overflow: hidden;
+}
+
+.container {
+	margin-top: 120px;
+}
+
+.left-sidebar {
+	width: 33%;
+	float: left;
+	overflow: hidden;
+	min-height: 100%;
+}
+
+.toc {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 1rem;
+	background-color: #efefef;
+	text-align: center;
+}

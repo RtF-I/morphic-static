@@ -1,0 +1,22 @@
+<header>
+	<a href="#main-menu"
+	   class="menu-toggle"
+	   role="button"
+	   id="main-menu-toggle"
+	   aria-expanded="false"
+	   aria-controls="main-menu"
+	   aria-label="Open main menu">
+	   <span></span>
+	   <span></span>
+	   <span></span>
+	   <span class="sr-only">Open main menu</span>
+	</a>
+	<h1 class="site-logo">{{ site.name | lower }}</h1>
+	<nav class="navbar" id="main-menu" role="navigation">
+		<ul>
+			{% for link, features in site.nav_menu %}
+				<li><a href="{{features.path}}" title="{{features.title}}">{{ features.name }}</a></li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

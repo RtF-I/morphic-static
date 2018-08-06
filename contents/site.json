@@ -1,0 +1,17 @@
+{
+	"name": "Morphic",
+	"description": "Technical documentation for Morphic",
+	"base_url": "/",
+	"nav_menu": {
+		"about": {
+			"name": "About",
+			"path": "/about",
+			"title": "About Morphic"
+		},
+		"help": {
+			"name": "Help and Documentation",
+			"path": "/help/qss/",
+			"title": "Morphic help and documentation"
+		}
+	}
+}

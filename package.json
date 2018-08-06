@@ -1,0 +1,35 @@
+{
+  "name": "morphic-static",
+  "version": "1.0.0",
+  "description": "A static site generator for Morphic using Metalsmith and gulp",
+  "main": "gulpfile.js",
+  "scripts": {
+    "deploy": "./deploy.sh"
+  },
+  "keywords": [
+    "metalsmith"
+  ],
+  "author": "Ignacio Peinado",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-connect": "^5.5.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-watch": "^5.0.1",
+    "jstransformer-markdown": "^1.2.1",
+    "jstransformer-nunjucks": "^0.5.0",
+    "metalsmith": "^2.3.0",
+    "metalsmith-assets": "^0.1.0",
+    "metalsmith-autotoc": "^0.1.5",
+    "metalsmith-collections": "^0.9.0",
+    "metalsmith-in-place": "^4.2.0",
+    "metalsmith-layouts": "^2.1.0",
+    "metalsmith-markdown": "^0.2.2",
+    "metalsmith-metadata": "0.0.4",
+    "metalsmith-path": "^0.3.1",
+    "metalsmith-permalinks": "^0.5.0"
+  }
+}

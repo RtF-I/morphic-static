@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>{{ title }}</title>
+{% include 'partials/meta.njk' %}
+</head>
+<body>
+{% include 'partials/header.njk' %}
+
+{% block contents %}
+	{{ contents | safe }}
+{% endblock %}
+
+{% include 'partials/footer.njk' %}
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(event) {
+		var toggleButton = document.getElementById('main-menu-toggle');
+		toggleButton.addEventListener('click', toggleClicked);
+	});
+	function toggleClicked(event) {
+		console.log('Someone clicked the button');
+
+		var navMenu = document.getElementById('main-menu'),
+			toggleButton = document.getElementById('main-menu-toggle');
+
+		var status = toggleButton.getAttribute('aria-expanded');
+		if (status == "false") {
+			toggleButton.setAttribute('aria-expanded', 'true');
+			navMenu.style.display = 'block';
+
+		} else if (status == "true") {
+			toggleButton.setAttribute('aria-expanded', 'false');
+			navMenu.style.display = 'none';
+		}
+	}
+</script>
+
+</body>
+</html>

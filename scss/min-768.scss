@@ -1,0 +1,23 @@
+/******************************
+* HEADER
+******************************/
+
+.menu-toggle {
+	display: none;
+}
+
+.site-logo {
+	margin-right: 16px;
+}
+
+.navbar {
+	display: inline-block;
+
+	ul > li {
+		display: inline-block;
+	}
+
+	ul > li > a {
+		padding: 8px;
+	}
+}

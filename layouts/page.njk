@@ -1,0 +1,18 @@
+{% extends 'layout.njk' %}
+{% block contents %}
+<div class="container">
+<aside class="left-sidebar">
+	<h2 class="sr-only">Navigation</h2>
+	{% if toc %}
+		<ul class="toc">
+		{% for item in toc %}
+			<li><a href="#{{ item.id }}">{{ item.text }}</a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+</aside>
+<div class="main" id="main">
+{{ contents | safe }}
+</div>
+</div><!-- container -->
+{% endblock %}
