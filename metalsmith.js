@@ -34,11 +34,12 @@ module.exports = Metalsmith(__dirname)
 		engine: 'nunjucks',
 		engineOptions: {
 			cache: false
-		}
+		},
+		pattern: '**/*.njk'
 	}))
 	.use(markdown())
 	.use(autotoc({
-		selector: 'h2, h3, h4'
+		selector: 'h2, h3, h4, h5, h6'
 	}))
 	.use(layouts({
 		engine: 'nunjucks',
@@ -47,7 +48,7 @@ module.exports = Metalsmith(__dirname)
 		},
 		pattern: '**/*',
 		directory: 'layouts',
-		default: 'layout.njk'
+		default: 'page.njk'
 	}))
 	.use(permalinks({
 		relative: false

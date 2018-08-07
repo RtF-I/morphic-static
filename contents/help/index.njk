@@ -1,13 +1,17 @@
 ---
 title: Help and Documentation
-description: page showing lalala
+description: all documentation
 ---
-<p>This is the documentation page</p>
-
-<h2>{{ qss.metadata.name }}</h2>
-
-<ul>
-{% for item in qss %}
-	<li><a href="{{ item.path }}">{{ item.title }}</a></li>
+<p>{{ description }}</p>
+{% for name, collection in collections %}
+<div class="kb-group">
+	<h2>{{ collection.metadata.name }}</h2>
+	<p>{{ collection.metadata.description }}</p>
+	<ul>
+	{% for item in collection %}
+		<li><a href="/{{ item.path }}">{{ item.title }}</a></li>
+	{% endfor %}
+	</ul>
+	
+</div>
 {% endfor %}
-</ul>

@@ -1,18 +1,40 @@
 {% extends 'layout.njk' %}
 {% block contents %}
-<div class="container">
-<aside class="left-sidebar">
-	<h2 class="sr-only">Navigation</h2>
-	{% if toc %}
-		<ul class="toc">
-		{% for item in toc %}
-			<li><a href="#{{ item.id }}">{{ item.text }}</a></li>
-		{% endfor %}
-		</ul>
+
+{% if toc %}
+	<aside class="left-sidebar">
+		<h2>In this page</h2>
+		<ol class="toc">
+			{% for item in toc %}
+				<li><a href="#{{ item.id }}">{{ item.text }}</a></li>
+				{% if item.children.length > 0 %}
+					<ol class="toc">
+						{% for subitem in item.children %}
+							<li><a href="#{{ subitem.id }}">{{ subitem.text }}</a></li>
+							{% if subitem.children.length > 0 %}
+								<ol class="toc">
+									{% for subsubitem in subitem.children %}
+										<li><a href="#{{ subsubitem.id }}">{{ subsubitem.text }}</a></li>
+									{% endfor %}
+								</ol>
+							{% endif %}
+						{% endfor %}
+					</ol>
+				{% endif %}
+			{% endfor %}
+	</aside>
+{% endif %}
+<div class="main {% if toc %}main-sidebar{% else %}main-no-sidebar{% endif %}" id="main">
+	{% if collection | length %}
+		<ol class="breadcrumb">
+			<li><a href="/help">Help and Documentation</a></li>
+			<li><a href="/help/{{collection}}">{{ collection }}</a></li>
+			<li>{{ title }}</li>
+		</ol>
 	{% endif %}
-</aside>
-<div class="main" id="main">
-{{ contents | safe }}
+	{% if title %}
+		<h1>{{ title }}</h1>
+	{% endif %}
+	{{ contents | safe }}
 </div>
-</div><!-- container -->
 {% endblock %}

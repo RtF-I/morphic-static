@@ -1,4 +1,6 @@
+<a href="#main" class="skip-main">Skip to content</a>
 <header>
+	<div class="row">
 	<a href="#main-menu"
 	   class="menu-toggle"
 	   role="button"
@@ -11,12 +13,20 @@
 	   <span></span>
 	   <span class="sr-only">Open main menu</span>
 	</a>
-	<h1 class="site-logo">{{ site.name | lower }}</h1>
+	<div class="site-logo">
+		<a href="/">
+		<svg width="130px" height="36px" viewBox="0 0 130 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><clipPath id="_clip1"><rect id="Fondo" x="1.25" y="0" width="34.12" height="36"/></clipPath><g clip-path="url(#_clip1)"><use xlink:href="#_Image2" x="1.282" y="0" width="34.12px" height="36px" transform="matrix(0.974857,0,0,1,0,0)"/></g><text x="41.815px" y="24.935px" style="font-family:'ArialMT', 'Arial', sans-serif;font-size:24px;">morphic</text><defs><image id="_Image2" width="35px" height="36px" xlink:href="data:image/png;base64,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"/></defs></svg>
+		</a>
+	</div>
 	<nav class="navbar" id="main-menu" role="navigation">
 		<ul>
-			{% for link, features in site.nav_menu %}
-				<li><a href="{{features.path}}" title="{{features.title}}">{{ features.name }}</a></li>
-			{% endfor %}
+			<li {% if title == 'About' %}class="active"{% endif %}>
+				<a href="/about" title="about">About</a>
+			</li>
+			<li {% if 'help' in path %}class="active"{% endif %}>
+				<a href="/help/qss">Help and documentation</a>
+			</li>
 		</ul>
 	</nav>
+</div>
 </header>
