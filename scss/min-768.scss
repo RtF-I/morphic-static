@@ -55,6 +55,17 @@ ol.toc {
 	}
 }
 
+// :target {
+// 	display: block;
+// 	position: relative;
+// 	top: -50px;
+// }
+
+:target {
+	display: block;
+	padding-top: 96px;
+}
+
 @media screen and (max-width: 1199px) {
 	.main.main-no-sidebar {
 		width: 75%;

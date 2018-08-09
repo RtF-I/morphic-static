@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>{{ title }} - {{ site.name }}</title>
+{% include 'partials/meta.njk' %}
+<link rel="stylesheet" href="/css/homepage.css">
+</head>
+<body>
+{% include 'partials/header.njk' %}
+
+<div class="container container-home">
+{% block contents %}
+	<div class="main main-content">
+		{{ contents | safe }}
+	</div>
+{% endblock %}
+</div>
+{% include 'partials/footer.njk' %}
+
+<script>
+	document.addEventListener('DOMContentLoaded', function(event) {
+		var toggleButton = document.getElementById('main-menu-toggle');
+		toggleButton.addEventListener('click', toggleClicked);
+	});
+	function toggleClicked(event) {
+		console.log('Someone clicked the button');
+
+		var navMenu = document.getElementById('main-menu'),
+			toggleButton = document.getElementById('main-menu-toggle');
+
+		var status = toggleButton.getAttribute('aria-expanded');
+		if (status == "false") {
+			toggleButton.setAttribute('aria-expanded', 'true');
+			navMenu.style.display = 'block';
+
+		} else if (status == "true") {
+			toggleButton.setAttribute('aria-expanded', 'false');
+			navMenu.style.display = 'none';
+		}
+	}
+</script>
+<script type="text/javascript"> var sib_prefix = 'sib'; var sib_dateformat = 'mm-dd-yyyy'; </script>
+<script src="https://www.google.com/recaptcha/api.js?onload=myCallBack&render=explicit&hl=en"></script>
+<script>
+  var verifyCallback = function(response) {
+    if(response.length > 0) {
+      $(".captcha > div.row > div.message_area").remove();
+    }
+  };
+  var myCallBack = function() {
+    if($('.captcha > div.row > div#gcaptcha').length > 0) {
+      var captcha = grecaptcha.render('gcaptcha', { 'sitekey' : '6LcN8mgUAAAAAMNgBrELNtwCrA2XMLur2r_9kchB', 'theme' : 'light', 'callback' : verifyCallback,
+    });
+  }
+};
+</script>
+<script type='text/javascript' src='https://my.sendinblue.com/public/theme/version4/assets/js/src/subscribe-validate.js?v=1528114687'>
+</script> <!-- End : SendinBlue Signup Form HTML Code -->
+
+</body>
+</html>

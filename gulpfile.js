@@ -17,7 +17,7 @@ gulp.task('metalsmith', function() {
 gulp.task('sass', function() {
 	return gulp.src('./scss/**/*.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass().on('error', sass.logError))
+		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
 		.pipe(sourcemaps.write())
 		.pipe(autoprefixer(['last 2 versions', '> 5%', 'Firefox ESR']))
 		.pipe(gulp.dest('./assets/css'))

@@ -1,6 +1,6 @@
 const Metalsmith = require('metalsmith'),
 	  metadata = require('metalsmith-metadata'),
-	  markdown = require('metalsmith-markdown'),
+	  markdown = require('metalsmith-markdownit'),
 	  layouts = require('metalsmith-layouts'),
 	  inplace = require('metalsmith-in-place'),
 	  permalinks = require('metalsmith-permalinks'),
@@ -11,11 +11,12 @@ const Metalsmith = require('metalsmith'),
 
 module.exports = Metalsmith(__dirname)
 	.use(metadata({
-		site: 'site.json'	
+		site: 'site.json'
 	}))
 	.clean(true)
 	.source('./contents')
 	.destination('./build')
+	.use(clearCollections(['qss']))
 	.use(collections({
 		qss: {
 			pattern: 'help/qss/**/*',
@@ -25,38 +26,58 @@ module.exports = Metalsmith(__dirname)
 			}
 		}
 	}))
-	.use(function(pages, metalsmith, done) {
-		const metadata = metalsmith.metadata();
-		console.log(metadata);
-		done();
-	})
-	.use(inplace({
-		engine: 'nunjucks',
-		engineOptions: {
-			cache: false
-		},
-		pattern: '**/*.njk'
-	}))
-	.use(markdown())
+	// .use(function(pages, metalsmith, done) {
+	// 	const metadata = metalsmith.metadata();
+	// 	console.log(metadata);
+	// 	done();
+	// })
 	.use(autotoc({
 		selector: 'h2, h3, h4, h5, h6'
 	}))
-	.use(layouts({
+	.use(inplace({
 		engine: 'nunjucks',
+		pattern: 'contents/**/*',
+		suppressNoFilesError: true,
 		engineOptions: {
 			cache: false
-		},
-		pattern: '**/*',
-		directory: 'layouts',
-		default: 'page.njk'
+		}
+	}))
+	.use(markdown({
+		typographer: true,
+		html: true
+	}))
+	.use(layouts({
+			engine: 'nunjucks',
+			engineOptions: {
+				cache: false
+			},
+			pattern: '**/*',
+			directory: 'layouts',
+			default: 'page.njk'
+		}))
+	.use(path({
+		baseDirectory: '/'
 	}))
 	.use(permalinks({
 		relative: false
-	}))
-	.use(path({
-		baseDirectory: '/'
 	}))
 	.use(assets({
 		source: './assets',
 		destination: ''
 	}));
+
+
+function clearCollections(collectionNames) {
+	return function(files, metalsmith, done) {
+		let metadata = metalsmith.metadata();
+
+		for (let collection of collectionNames) {
+			if (collection in metadata) {
+				metadata[collection] = [];
+			}
+		}
+
+		metalsmith.metadata(metadata);
+		done();
+	}
+}

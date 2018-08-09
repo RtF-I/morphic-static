@@ -20,11 +20,14 @@
 	</div>
 	<nav class="navbar" id="main-menu" role="navigation">
 		<ul>
-			<li {% if title == 'About' %}class="active"{% endif %}>
+			{# <li {% if title == 'About' %}class="active"{% endif %}>
 				<a href="/about" title="about">About</a>
-			</li>
+			</li> #}
 			<li {% if 'help' in path %}class="active"{% endif %}>
 				<a href="/help/qss">Help and documentation</a>
+				{# {% for name, collection in collections %}
+					{{ collection.metadata.name }}
+				{% endfor %} #}
 			</li>
 		</ul>
 	</nav>

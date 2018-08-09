@@ -25,13 +25,13 @@
 	</aside>
 {% endif %}
 <div class="main {% if toc %}main-sidebar{% else %}main-no-sidebar{% endif %}" id="main">
-	{% if collection | length %}
+	{# {% if collection | length %}
 		<ol class="breadcrumb">
 			<li><a href="/help">Help and Documentation</a></li>
 			<li><a href="/help/{{collection}}">{{ collection }}</a></li>
 			<li>{{ title }}</li>
 		</ol>
-	{% endif %}
+	{% endif %} #}
 	{% if title %}
 		<h1>{{ title }}</h1>
 	{% endif %}

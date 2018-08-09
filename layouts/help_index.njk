@@ -1,0 +1,19 @@
+{% extends 'layout.njk' %}
+
+{% block contents %}
+<div class="main main-no-sidebar">
+<p>{{ description }}</p>
+{% for name, collection in collections %}
+<div class="kb-group">
+  <h2>{{ collection.metadata.name }}</h2>
+  <p>{{ collection.metadata.description }}</p>
+  <ul>
+  {% for item in collection %}
+    <li><a href="/{{ item.path }}">{{ item.title }}</a></li>
+  {% endfor %}
+  </ul>
+
+</div>
+{% endfor %}
+</div>
+{% endblock %}

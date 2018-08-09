@@ -1,8 +1,18 @@
 body {
 	font-family: Roboto, sans-serif;
 	font-size: 16px;
+	line-height: 24px;
 	padding: 0;
 	margin: 0;
+}
+
+img, embed, video {
+	max-width: 100%;
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 1em;
 }
 
 /************************************
@@ -108,7 +118,7 @@ a.skip-main:focus, a.skip-main:active {
 }
 
 ol.breadcrumb {
-	margin: 0;
+	margin: 0 0 1rem 0;
 	padding: 0;
 	list-style-type: none;
 
@@ -145,31 +155,4 @@ footer {
 	position: relative;
 	padding: 2rem 1rem;
 	max-width: 1220px;
-}
-
-/********************
-* TEMP
-*********************/
-.coming_soon {
-	width: 100vw;
-	height: calc(100vh - 200px);
-	box-sizing: border-box;
-	padding: 25%;
-	font-size: 5rem;
-	animation: changeColor 20s ease infinite;
-}
-
-@keyframes changeColor {
-	0% {
-		color: red;
-	}
-	33% {
-		color: blue;
-	}
-	66% {
-		color: green;
-	}
-	100% {
-		color: black;
-	}
 }
