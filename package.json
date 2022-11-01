@@ -12,7 +12,7 @@
   "author": "Ignacio Peinado",
   "license": "ISC",
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-connect": "^5.5.0",
     "gulp-rename": "^1.4.0",
